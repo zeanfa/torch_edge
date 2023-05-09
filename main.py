@@ -19,7 +19,8 @@ def to_np(img_tensor):
 
 def main():
     edge = Edge()
-    img = cv2.imread('img/ny.png', cv2.IMREAD_GRAYSCALE)
+    input_path = 'img/ny.png'
+    img = cv2.imread(input_path, cv2.IMREAD_GRAYSCALE)
 
     img_tensor = to_tensor(img)
     edge_tensor = edge(img_tensor)
@@ -32,8 +33,10 @@ def main():
     cv2.imshow('vertical grad', vert_grad_img)
     cv2.waitKey()
 
-    cv2.imwrite('img/ny_hor.png', hor_grad_img)
-    cv2.imwrite('img/ny_vert.png', vert_grad_img)
+    hor_path = input_path[:-4] + '_hor.png'
+    vert_path = input_path[:-4] + '_vert.png'
+    cv2.imwrite(hor_path, hor_grad_img)
+    cv2.imwrite(vert_path, vert_grad_img)
 
 
 if __name__ == "__main__":
