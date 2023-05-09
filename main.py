@@ -25,7 +25,7 @@ def main():
     edge_tensor = edge(img_tensor)
     img_edges = to_np(edge_tensor)
 
-    hor_grad_img = (255*img_edges[:, :, 0] / np.max(img_edges[:, :, 1])).astype(np.uint8)
+    hor_grad_img = (255*img_edges[:, :, 0] / np.max(img_edges[:, :, 0])).astype(np.uint8)
     vert_grad_img = (255*img_edges[:, :, 1] / np.max(img_edges[:, :, 1])).astype(np.uint8)
 
     cv2.imshow('horizontal grad', hor_grad_img)
